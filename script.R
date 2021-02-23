@@ -31,8 +31,10 @@ data_survey <- read.csv(file = 'results-survey715685.csv')
 
 ## Correlation
 cor.test(data_survey$E4, data_survey$B1,
-         method = "pearson")
+         method = "spearman")
 
+cor.test(data_survey$E3, data_survey$B2,
+         method = "pearson")
 ##create second dataframe without unusable education data
 
 data_survey_education <- data_survey %>%
@@ -47,7 +49,7 @@ data_survey$education <- as.character(data_survey$E4)
 data_survey$occupation <- factor(data_survey$E5, 
                                 levels = c(1, 2, 3, 4, 5, 6), 
                                 labels = c("-Schueler", "-Auszubildender", "-Studierender",
-                                           "-Berufstätiger", "-Arbeitssuchender", "-Arbeitslos"))
+                                           "-BerufstÃ¤tiger", "-Arbeitssuchender", "-Arbeitslos"))
 
 
 data_survey$education <- factor(data_survey$E4, 
